@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 // lightTheme or darkTheme
-import { lightTheme as theme } from '../../constants/colors';
+import { darkTheme as theme } from '../../constants/colors';
 
 const CurrencyCard = ({ name }) => {
     return(

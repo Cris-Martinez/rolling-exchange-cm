@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import CurrencyCard from "./CurrencyCard";
 
 // lightTheme or darkTheme
-import { lightTheme as theme } from '../../constants/colors';
+import { darkTheme as theme } from '../../constants/colors';
 
 const CurrenciesContainer = () => {
     return(
