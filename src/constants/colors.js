@@ -4,14 +4,13 @@ export const darkTheme = {
     container: '#242D36',
     textPrimary: '#FFFFFF',
     textSecondary: '#000000',
-    link: '#4C508D',
-}
-
-export const lightTheme = {
+    link: '#F85D5D',
+  }
+  export const lightTheme = {
     primary: '#ebebeb',
     secondary: '#171921',
     container: '#FFFFFF',
     textPrimary: '#171921',
     textSecondary: '#FFFFFF',
-    link: '#B810DA',
-}
+    link: '#FC8C03',
+  }
