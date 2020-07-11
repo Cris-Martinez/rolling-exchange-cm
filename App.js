@@ -14,6 +14,7 @@ import { lightTheme } from './src/constants/colors'
 
 export default function App() {
   const [ mainVisible, setMainVisible ] = useState(true)
+  const [ amount, setAmount ] = useState('')
   const [ appTheme, setAppTheme ] = useState(defaultTheme)
 
   const updateTheme = () =>{
@@ -29,9 +30,17 @@ export default function App() {
         mainVisible ?
         (
           <Fragment>
-            <TopContainer appTheme={appTheme}/>
-            <CurrenciesContainer appTheme={appTheme} changeScreen={setMainVisible} />
-            <BottomContainer appTheme={appTheme} updateTheme={updateTheme}/>
+            <TopContainer 
+                      appTheme={appTheme} 
+                      amount={amount} 
+                      setAmount={setAmount}/>
+            <CurrenciesContainer 
+                      appTheme={appTheme} 
+                      changeScreen={setMainVisible} 
+                      amount={amount} />
+            <BottomContainer 
+                      appTheme={appTheme} 
+                      updateTheme={updateTheme}/>
           </Fragment>
         )
         :
