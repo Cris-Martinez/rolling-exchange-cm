@@ -1,13 +1,13 @@
 import React, { useState, Fragment } from 'react';
-import { StyleSheet, View, StatusBar, Platform } from 'react-native';
+import { View, StatusBar, Platform } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper'
 import TopContainer from './src/components/TopContainer'
 import CurrenciesContainer from './src/components/content/CurrenciesContainer'
 import BottomContainer from './src/components/BottonContainer'
 import FavoritesSearchbar from './src/components/favorites/FavoritesSearchbar'
 import FavoritesContainer from './src/components/favorites/FavoritesContainer'
+import currencies from './src/constants/currencies'
 
-// lightTheme or darkTheme
 import { darkTheme as defaultTheme } from './src/constants/colors'
 import { darkTheme } from './src/constants/colors'
 import { lightTheme } from './src/constants/colors'
@@ -16,10 +16,23 @@ export default function App() {
   const [ mainVisible, setMainVisible ] = useState(true)
   const [ amount, setAmount ] = useState('')
   const [ favoriteCurrencies, setFavoriteCurrencies ] = useState([])
+  const [ allCurrencies, setAllCurrencies ] =
+    useState(currencies.map(curr => ({ ...curr, isFavorite: false })))
   const [ appTheme, setAppTheme ] = useState(defaultTheme)
 
   const updateTheme = () =>{
     appTheme.name === 'darkTheme' ? setAppTheme(lightTheme) : setAppTheme(darkTheme)
+  }
+
+  const addFavoriteCurrency = newCurrency => {
+    setFavoriteCurrencies( prevState => [...prevState, newCurrency] )
+  }
+
+  const updateCurrency = ( name, isFavorite ) => {
+    let temp_allCurrencies = allCurrencies
+    const objIndex = allCurrencies.findIndex((obj => obj.name === name))
+    temp_allCurrencies[objIndex].isFavorite = !isFavorite
+    setAllCurrencies(temp_allCurrencies)
   }
 
   return (
@@ -39,7 +52,7 @@ export default function App() {
                       appTheme={appTheme} 
                       changeScreen={setMainVisible} 
                       amount={amount} 
-                      favoriteCurrencies={favoriteCurrencies}/>
+                      allCurrencies={allCurrencies}/>
             <BottomContainer 
                       appTheme={appTheme} 
                       updateTheme={updateTheme}/>
@@ -49,7 +62,11 @@ export default function App() {
         (
           <Fragment>
             <FavoritesSearchbar appTheme={appTheme} changeScreen={setMainVisible} />
-            <FavoritesContainer appTheme={appTheme} />
+            <FavoritesContainer 
+                        appTheme={appTheme}
+                        allCurrencies={allCurrencies}
+                        addFavoriteCurrency={addFavoriteCurrency}
+                        updateCurrency={updateCurrency}/>
           </Fragment>
         )
       }
