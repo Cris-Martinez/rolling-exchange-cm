@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { Button } from 'react-native-paper'
 import CurrencyCard from './CurrencyCard';
+import MenuAction from "../../common/MenuAction";
 
 // lightTheme or darkTheme
 import { darkTheme as theme } from '../../constants/colors'
@@ -15,6 +16,7 @@ const CurrenciesContainer = ({ changeScreen }) => (
       <CurrencyCard name="ARS" flag={"ars"} />
       <CurrencyCard name="EUR" flag={"eur"} />
       <CurrencyCard name="JPY" flag={"jpy"} />
+      <MenuAction />
     </View>
   </>
 )
