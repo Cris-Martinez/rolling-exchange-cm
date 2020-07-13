@@ -6,6 +6,7 @@ import CurrenciesContainer from './src/components/content/CurrenciesContainer'
 import BottomContainer from './src/components/BottonContainer'
 import FavoritesSearchbar from './src/components/favorites/FavoritesSearchbar'
 import FavoritesContainer from './src/components/favorites/FavoritesContainer'
+import MainContainer from './src/components/pages/MainContainer'
 import currencies from './src/constants/currencies'
 
 import { darkTheme as defaultTheme } from './src/constants/colors'
@@ -44,8 +45,9 @@ export default function App() {
         mainVisible ?
         (
           <Fragment>
-            <TopContainer 
-                      appTheme={appTheme} 
+            <MainContainer/>
+            {/* <TopContainer 
+                      appTheme={appTheme}
                       amount={amount} 
                       setAmount={setAmount}/>
             <CurrenciesContainer 
@@ -55,7 +57,7 @@ export default function App() {
                       allCurrencies={allCurrencies}/>
             <BottomContainer 
                       appTheme={appTheme} 
-                      updateTheme={updateTheme}/>
+                      updateTheme={updateTheme}/> */}
           </Fragment>
         )
         :
