@@ -45,8 +45,8 @@ export default function App() {
         mainVisible ?
         (
           <Fragment>
-            <MainContainer/>
-            {/* <TopContainer 
+            {/* <MainContainer/> */}
+            <TopContainer 
                       appTheme={appTheme}
                       amount={amount} 
                       setAmount={setAmount}/>
@@ -57,7 +57,7 @@ export default function App() {
                       allCurrencies={allCurrencies}/>
             <BottomContainer 
                       appTheme={appTheme} 
-                      updateTheme={updateTheme}/> */}
+                      updateTheme={updateTheme}/>
           </Fragment>
         )
         :

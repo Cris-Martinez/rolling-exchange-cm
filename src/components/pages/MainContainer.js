@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper'
 import { Title, Avatar, Button, Card, Paragraph } from 'react-native-paper'
 import card from '../../assets/card.jpeg'
@@ -9,9 +9,10 @@ const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 const MainContainer = () => {
     const styles = getStyles()
     return(
-        <View style={styles.mainContainer}>
+    <ScrollView style={styles.scrollView}>
+        <SafeAreaView style={styles.mainContainer}>
             <Text style={styles.text}>Mi caja de ahorro</Text>
-            <Card style={styles.cardContainer}>
+            <Card style={styles.cardContainerBox}>
                 <Card.Content>
                     <View style={styles.iconShareContainer}>
                         <Button icon="share-variant" />
@@ -35,10 +36,10 @@ const MainContainer = () => {
                 <Card.Cover style={styles.coverContainer} source={card}/>
             </Card>
             <Text style={styles.text}>Otros productos</Text>
-            <Card style={styles.cardContainer}>
+            <Card style={styles.cardContainerProduct}>
                 <Card.Content>
                     <View style={styles.iconShareContainer}>
-                        <Button icon="share-variant" />
+                        <Button icon="cash-multiple" />
                     </View>
                     <View>
                         <Paragraph>Plazo Fijo</Paragraph>
@@ -49,7 +50,25 @@ const MainContainer = () => {
                     <Button >Solicitar</Button>
                 </Card.Content>
             </Card>
-        </View>
+            <Text style={styles.text}>Recargas</Text>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+                <Card style={styles.cardContainerRefills}>
+                    <Image
+                        src={<Avatar.Icon icon="cellphone-android"/>}
+                    />
+                    <Text>Celular</Text>
+                    {/* <Button icon="cellphone-android">Celular</Button> */}
+                </Card>
+                <Card style={styles.cardContainerRefills}>
+                    <Image
+                        src={<Avatar.Icon icon="card-bulleted"/>}
+                    />
+                    <Text>Ciudadana</Text>
+                    {/* <Button icon="card-bulleted">Ciudadana</Button> */}
+                </Card>
+            </View>
+        </SafeAreaView>
+        </ScrollView>
     )
 }
 
@@ -59,21 +78,22 @@ const getStyles = () => (
             flex:1,
             backgroundColor: 'white',
         },
-        cardContainer: {
+        cardContainerBox: {
             backgroundColor: '#fff1f0',
             width: '90%',
             marginLeft: '5%',
-            height: '30%',
+            height: '20%',
             borderRadius: 20,
             borderWidth: 1,
             borderColor: "#8c8c8c",
+            marginBottom:1
         },
         infoContainer:{
-            marginTop: 50,
+            marginTop: 20,
         },
         iconShareContainer:{
             alignSelf: 'flex-end',
-            width: 30,
+            width: 40,
             height: 5,
         },
         text:{
@@ -87,6 +107,29 @@ const getStyles = () => (
             width: '90%',
             marginLeft: '5%',
             borderRadius: 20,
+            borderWidth: 1,
+            borderColor: "#8c8c8c",
+        },
+        scrollView: {
+            marginHorizontal: 1,
+        },
+        cardContainerProduct: {
+            backgroundColor: '#fff1f0',
+            width: '90%',
+            marginLeft: '5%',
+            height: '15%',
+            borderRadius: 20,
+            borderWidth: 1,
+            borderColor: "#8c8c8c",
+        },
+        cardContainerRefills: {
+            backgroundColor: '#fff1f0',
+            width: 150, 
+            height: 90,
+            marginBottom:30,
+            borderRadius: 10,
+            marginRight: 10,
+            marginLeft: 15,
             borderWidth: 1,
             borderColor: "#8c8c8c",
         }  
