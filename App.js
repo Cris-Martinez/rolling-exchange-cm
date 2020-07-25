@@ -49,6 +49,7 @@ export default function App() {
             {/* <MainContainer/> */}
             <TopContainer 
                       appTheme={appTheme}
+                      fromCurrency={fromCurrency}
                       amount={amount} 
                       setAmount={setAmount}/>
             <CurrenciesContainer 
