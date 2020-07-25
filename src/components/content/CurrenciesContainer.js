@@ -4,7 +4,7 @@ import { Button } from 'react-native-paper'
 import CurrencyCard from './CurrencyCard';
 import MenuAction from "../../common/MenuAction";
 
-const CurrenciesContainer = ({ appTheme, changeScreen, amount, allCurrencies }) => (
+const CurrenciesContainer = ({ appTheme, changeScreen, fromCurrency, amount, allCurrencies }) => (
   <>
     <View style={getStyle(appTheme,'currenciesContainer')}>
       <Button onPress={() => changeScreen(false)} style={getStyle(appTheme,'button')}>
@@ -15,6 +15,7 @@ const CurrenciesContainer = ({ appTheme, changeScreen, amount, allCurrencies }) 
             <CurrencyCard 
                   key={fav.name} 
                   appTheme={appTheme} 
+                  fromCurrency={fromCurrency}
                   amount={amount} 
                   name={fav.name} 
                   flag={fav.flag} />
