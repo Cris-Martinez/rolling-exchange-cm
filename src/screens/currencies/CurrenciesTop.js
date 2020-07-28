@@ -5,10 +5,10 @@ import { TextInput, Button } from 'react-native-paper'
 const CurrenciesTop = ({ appTheme, fromCurrency, setFromCurrency, amount, setAmount }) => {
   const [ showSelection, setShowSelection ] = useState(false)
   const requireFlag = {
-    ars: require('../assets/flags/ars.png'),
-    usd: require('../assets/flags/usd.png'),
-    eur: require('../assets/flags/eur.png'),
-    jpy: require('../assets/flags/jpy.png'),
+    ars: require('../../assets/flags/ars.png'),
+    usd: require('../../assets/flags/usd.png'),
+    eur: require('../../assets/flags/eur.png'),
+    jpy: require('../../assets/flags/jpy.png'),
   }
   const onHandleShowSelection = () => {
     setShowSelection(!showSelection)

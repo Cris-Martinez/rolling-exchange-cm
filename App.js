@@ -1,11 +1,11 @@
 import React, { useState, Fragment } from 'react';
-import { View, StatusBar, Platform } from 'react-native';
+import { View, StatusBar, Platform, Dimensions } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper'
-import TopContainer from './src/components/TopContainer'
-import CurrenciesContainer from './src/components/content/CurrenciesContainer'
-import BottomContainer from './src/components/BottonContainer'
-import FavoritesSearchbar from './src/components/favorites/FavoritesSearchbar'
-import FavoritesContainer from './src/components/favorites/FavoritesContainer'
+import CurrenciesTop from './src/screens/currencies/CurrenciesTop'
+import CurrenciesContainer from './src/screens/currencies/content/CurrenciesContainer'
+import CurrenciesBottom from './src/screens/currencies/CurrenciesBottom'
+import FavoritesTop from './src/screens/favorites/FavoritesTop'
+import FavoritesContainer from './src/screens/favorites/content/FavoritesContainer'
 import currencies from './src/constants/currencies'
 
 import { darkTheme as defaultTheme } from './src/constants/colors'
