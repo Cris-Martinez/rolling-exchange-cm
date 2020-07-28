@@ -15,7 +15,7 @@ import { lightTheme } from './src/constants/colors'
 
 export default function App() {
   const [ mainVisible, setMainVisible ] = useState(true)
-  const [ fromCurrency ] = useState('usd')
+  const [ fromCurrency, setFromCurrency ] = useState('usd')
   const [ amount, setAmount ] = useState('')
   const [ favoriteCurrencies, setFavoriteCurrencies ] = useState([])
   const [ allCurrencies, setAllCurrencies ] =
@@ -50,6 +50,7 @@ export default function App() {
             <TopContainer 
                       appTheme={appTheme}
                       fromCurrency={fromCurrency}
+                      setFromCurrency={setFromCurrency}
                       amount={amount} 
                       setAmount={setAmount}/>
             <CurrenciesContainer 
