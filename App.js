@@ -15,7 +15,7 @@ import { darkTheme as defaultTheme } from './src/constants/colors'
 import { darkTheme } from './src/constants/colors'
 import { lightTheme } from './src/constants/colors'
 
-const windowHeigh = Dimensions.get('window').height
+const windowHeigh = Dimensions.get('screen').height
 
 export default function App() {
   const [ mainVisible, setMainVisible ] = useState(true)
@@ -50,7 +50,7 @@ export default function App() {
           mainVisible ?
           (
             <Fragment>
-              {/* <CurrenciesTop
+              <CurrenciesTop
                 appTheme={appTheme}
                 fromCurrency={fromCurrency}
                 setFromCurrency={setFromCurrency}
@@ -64,9 +64,9 @@ export default function App() {
                 changeScreen={setMainVisible}
                 allCurrencies={allCurrencies}
               />
-              <CurrenciesBottom appTheme={appTheme} updateTheme={updateTheme} /> */}
+              <CurrenciesBottom appTheme={appTheme} updateTheme={updateTheme} />
               {/* <MainContainer/> */}
-              <CardContainer/>
+              {/* <CardContainer/> */}
             </Fragment>
           )
           :

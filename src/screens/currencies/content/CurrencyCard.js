@@ -49,7 +49,6 @@ const getStyle = (theme, component) => {
     case 'card':
       return({
         backgroundColor: theme.container,
-        width: '90%',
         padding: 25,
         margin: 10,
         flexDirection: 'row',
