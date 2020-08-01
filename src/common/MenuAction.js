@@ -18,13 +18,18 @@ const MenuAction = () => {
           actions={[
             { icon: 'cogs', label: 'Configurar', onPress: () => console.log('Pressed add') },
             {
+              icon: 'account-box',
+              label: 'Contacto',
+              onPress: () => console.log('Pressed star'),
+            },
+            {
               icon: 'arrow-down-circle',
-              label: 'Extraccion sin tarjeta',
+              label: 'Tarjeta',
               onPress: () => console.log('Pressed star'),
             },
             {
               icon: 'credit-card-outline',
-              label: 'Pagar servicios',
+              label: 'Recargas y pagos',
               onPress: () => console.log('Pressed star'),
             },
             {
@@ -34,7 +39,7 @@ const MenuAction = () => {
             },
             {
               icon: 'arrow-collapse',
-              label: 'Transferir',
+              label: 'Transferencias',
               onPress: () => console.log('Pressed notifications'),
             },
           ]}

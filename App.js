@@ -7,6 +7,9 @@ import CurrenciesBottom from './src/screens/currencies/CurrenciesBottom'
 import FavoritesTop from './src/screens/favorites/FavoritesTop'
 import FavoritesContainer from './src/screens/favorites/content/FavoritesContainer'
 import currencies from './src/constants/currencies'
+import MainContainer from './src/screens/pages/MainContainer'
+import ContactContainer from './src/screens/pages/ContactContainer'
+import CardContainer from './src/screens/pages/CardContainer'
 
 import { darkTheme as defaultTheme } from './src/constants/colors'
 import { darkTheme } from './src/constants/colors'
@@ -42,12 +45,12 @@ export default function App() {
       <View style={{ minHeight: windowHeigh }}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         {Platform.OS === 'android' && <View style={getStyle(appTheme, 'statusBarUnderlay')} />}
-
+        
         {
           mainVisible ?
           (
             <Fragment>
-              <CurrenciesTop
+              {/* <CurrenciesTop
                 appTheme={appTheme}
                 fromCurrency={fromCurrency}
                 setFromCurrency={setFromCurrency}
@@ -61,7 +64,9 @@ export default function App() {
                 changeScreen={setMainVisible}
                 allCurrencies={allCurrencies}
               />
-              <CurrenciesBottom appTheme={appTheme} updateTheme={updateTheme} />
+              <CurrenciesBottom appTheme={appTheme} updateTheme={updateTheme} /> */}
+              {/* <MainContainer/> */}
+              <CardContainer/>
             </Fragment>
           )
           :

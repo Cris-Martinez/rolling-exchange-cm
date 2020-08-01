@@ -3,6 +3,8 @@ import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image } from 'react-n
 import { Provider as PaperProvider } from 'react-native-paper'
 import { Title, Avatar, Button, Card, Paragraph } from 'react-native-paper'
 import card from '../../assets/card.jpeg'
+import phone from '../../assets/telefono-inteligente.png'
+import cart from '../../assets/tarjeta-de-credito.png'
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
@@ -54,17 +56,17 @@ const MainContainer = () => {
             <View style={{flex: 1, flexDirection: 'row'}}>
                 <Card style={styles.cardContainerRefills}>
                     <Image
-                        src={<Avatar.Icon icon="cellphone-android"/>}
+                        style={styles.imagePhone}
+                        source={phone}
                     />
-                    <Text>Celular</Text>
-                    {/* <Button icon="cellphone-android">Celular</Button> */}
+                    <Text style={styles.imageTextPhone}>Celular</Text>
                 </Card>
                 <Card style={styles.cardContainerRefills}>
                     <Image
-                        src={<Avatar.Icon icon="card-bulleted"/>}
+                        style={styles.imageCart}
+                        source={cart}
                     />
-                    <Text>Ciudadana</Text>
-                    {/* <Button icon="card-bulleted">Ciudadana</Button> */}
+                    <Text style={styles.imageTextCart} >Ciudadana</Text>
                 </Card>
             </View>
         </SafeAreaView>
@@ -124,15 +126,34 @@ const getStyles = () => (
         },
         cardContainerRefills: {
             backgroundColor: '#fff1f0',
-            width: 150, 
-            height: 90,
-            marginBottom:30,
+            width: 100, 
+            height: 150,
+            marginBottom: 100,
             borderRadius: 10,
             marginRight: 10,
-            marginLeft: 15,
+            marginLeft: 85,
             borderWidth: 1,
             borderColor: "#8c8c8c",
-        }  
+        },
+        imagePhone: {
+            width: 100,
+            height:100,
+            marginTop:10, 
+        },
+        imageCart:{
+            width: 85,
+            height:85,
+            marginTop:10,
+            marginLeft:5
+        },
+        imageTextPhone:{
+            marginLeft: 27,
+            marginTop: 10,
+        },
+        imageTextCart:{
+            marginLeft: 15,
+            marginTop: 25,
+        }    
     })
   )
   
