@@ -6,7 +6,7 @@ import CurrenciesContainer from './src/screens/currencies/content/CurrenciesCont
 import CurrenciesBottom from './src/screens/currencies/CurrenciesBottom'
 import FavoritesTop from './src/screens/favorites/FavoritesTop'
 import FavoritesContainer from './src/screens/favorites/content/FavoritesContainer'
-import currencies from './src/constants/currencies'
+import { currencies, initialRates } from './src/constants/currencies'
 import MainContainer from './src/screens/pages/MainContainer'
 import ContactContainer from './src/screens/pages/ContactContainer'
 import CardContainer from './src/screens/pages/CardContainer'
@@ -18,8 +18,9 @@ import { lightTheme } from './src/constants/colors'
 const windowHeigh = Dimensions.get('screen').height
 
 export default function App() {
+  const [ lastRates, setLastRates ] = useState(initialRates)
   const [ mainVisible, setMainVisible ] = useState(true)
-  const [ fromCurrency, setFromCurrency ] = useState('ars')
+  const [ fromCurrency, setFromCurrency ] = useState('usd')
   const [ amount, setAmount ] = useState('')
   const [ favoriteCurrencies, setFavoriteCurrencies ] = useState([])
   const [ allCurrencies, setAllCurrencies ] =
@@ -28,7 +29,7 @@ export default function App() {
   const updateTheme = () => {
     appTheme.name === 'darkTheme' ? setAppTheme(lightTheme) : setAppTheme(darkTheme)
   }
-
+  
   const addFavoriteCurrency = newCurrency => {
     setFavoriteCurrencies( prevState => [...prevState, newCurrency] )
   }
