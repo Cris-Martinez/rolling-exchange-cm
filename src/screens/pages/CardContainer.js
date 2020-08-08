@@ -1,8 +1,7 @@
 import React,{ useState } from 'react';
 import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image, ImageBackground } from 'react-native';
-import { Title, Avatar, Button, Card, Paragraph, Divider, Switch  } from 'react-native-paper'
+import { Title, Card, Divider, Switch  } from 'react-native-paper'
 import card from '../../assets/card.jpeg'
-import phone from '../../assets/telefono-inteligente.png'
 import cart from '../../assets/tarjeta-de-credito.png'
 import image from '../../assets/fondo.jpg'
 import retirar from '../../assets/retirar.png'
@@ -25,7 +24,7 @@ const CardContainer = () => {
                     </Card>
                 </ImageBackground>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{marginLeft:50, width: 300, height: 110 }}>
+                    <View style={{marginLeft:15, width: 250, height: 110 }}>
                         <Text style={{ marginTop:18, marginBottom:15, fontWeight:'bold'}}>Congelar</Text>
                         <Text style={{ marginTop:5, marginBottom:15}}>Deshabilitar temporalmente la cuenta.</Text>
                     </View>
@@ -41,7 +40,7 @@ const CardContainer = () => {
                             source={agregar}
                         />
                     </View>
-                    <View style={{marginLeft:50, width: 300, height: 110 }}>
+                    <View style={{marginLeft:50, width: 200, height: 85 }}>
                         <Text style={{ marginTop:18, marginBottom:15, fontWeight:'bold'}}>Formas de carga</Text>
                         <Text style={{ marginTop:5, marginBottom:15}}>Por transferencia o efectivo.</Text>
                     </View>
@@ -54,7 +53,7 @@ const CardContainer = () => {
                             source={seguridad}
                         />
                     </View>
-                    <View style={{marginLeft:50, width: 300, height: 110 }}>
+                    <View style={{marginLeft:50, width: 200, height: 85 }}>
                         <Text style={{ marginTop:18, marginBottom:15, fontWeight:'bold'}}>Seguridad</Text>
                         <Text style={{ marginTop:5, marginBottom:15}}>Podés crear o cambiar tus claves.</Text>
                     </View>
@@ -67,9 +66,9 @@ const CardContainer = () => {
                             source={retirar}
                         />
                     </View>
-                    <View style={{marginLeft:50, width: 300, height: 110 }}>
+                    <View style={{marginLeft:50, width: 200, height: 100, marginBottom: 25 }}>
                         <Text style={{ marginTop:18, marginBottom:15, fontWeight:'bold'}}>Retiro de efectivo</Text>
-                        <Text style={{ marginTop:5, marginBottom:15}}>Red Link $5000 - Banelco $2000 por día.</Text>
+                        <Text style={{ marginTop:5 }}>Red Link $5000 - Banelco $2000 por día.</Text>
                     </View>
                 </View>
                 <Divider/>            
@@ -81,15 +80,15 @@ const CardContainer = () => {
 const getStyles = () => (
     StyleSheet.create({
         image: {
-            height:300,
+            height:200,
             borderWidth: 0,
             borderColor: "#8c8c8c",
           },
         cardCoverContainer:{
-            marginTop:130,
+            marginTop:45,
             width: 200,
             height: 10,
-            marginLeft: 140,
+            marginLeft: 80,
         },
         coverContainer:{
             height: 100
@@ -102,7 +101,7 @@ const getStyles = () => (
             width: 5,
             height: 5,
             padding:12,
-            marginLeft:70,
+            marginLeft:30,
             marginTop:35
         },  
     })

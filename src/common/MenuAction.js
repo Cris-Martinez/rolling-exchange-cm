@@ -16,7 +16,7 @@ const MenuAction = () => {
           open={open}
           icon={open ? 'flash-circle' : 'bank'}
           actions={[
-            { icon: 'cogs', label: 'Configurar', onPress: () => console.log('Pressed add') },
+            { icon: 'cogs', label: 'Configuracion', onPress: () => console.log('Pressed add') },
             {
               icon: 'account-box',
               label: 'Contacto',

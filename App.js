@@ -10,6 +10,8 @@ import { currencies, initialRates } from './src/constants/currencies'
 import MainContainer from './src/screens/pages/MainContainer'
 import ContactContainer from './src/screens/pages/ContactContainer'
 import CardContainer from './src/screens/pages/CardContainer'
+import TransferContainer from './src/screens/pages/TransferContainer'
+import ServiceContainer from './src/screens/pages/ServiceContainer'
 
 import { darkTheme as defaultTheme } from './src/constants/colors'
 import { darkTheme } from './src/constants/colors'
@@ -51,7 +53,7 @@ export default function App() {
           mainVisible ?
           (
             <Fragment>
-              <CurrenciesTop
+              {/* <CurrenciesTop
                 appTheme={appTheme}
                 fromCurrency={fromCurrency}
                 setFromCurrency={setFromCurrency}
@@ -65,9 +67,11 @@ export default function App() {
                 changeScreen={setMainVisible}
                 allCurrencies={allCurrencies}
               />
-              <CurrenciesBottom appTheme={appTheme} updateTheme={updateTheme} />
+              <CurrenciesBottom appTheme={appTheme} updateTheme={updateTheme} /> */}
               {/* <MainContainer/> */}
               {/* <CardContainer/> */}
+              {/* <TransferContainer/> */}
+              <ServiceContainer/>
             </Fragment>
           )
           :

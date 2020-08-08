@@ -131,7 +131,7 @@ const getStyles = () => (
             marginBottom: 100,
             borderRadius: 10,
             marginRight: 10,
-            marginLeft: 85,
+            marginLeft: 50,
             borderWidth: 1,
             borderColor: "#8c8c8c",
         },
@@ -144,14 +144,14 @@ const getStyles = () => (
             width: 85,
             height:85,
             marginTop:10,
-            marginLeft:5
+            marginLeft:6
         },
         imageTextPhone:{
             marginLeft: 27,
             marginTop: 10,
         },
         imageTextCart:{
-            marginLeft: 15,
+            marginLeft: 21,
             marginTop: 25,
         }    
     })
