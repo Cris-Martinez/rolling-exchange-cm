@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
-import { View, StatusBar, Platform, Dimensions } from 'react-native';
+import moment from 'moment'
+import { StyleSheet, View, StatusBar, Platform, Dimensions } from 'react-native'
 import { Provider as PaperProvider } from 'react-native-paper'
 import CurrenciesTop from './src/screens/currencies/CurrenciesTop'
 import CurrenciesContainer from './src/screens/currencies/content/CurrenciesContainer'
@@ -7,15 +8,10 @@ import CurrenciesBottom from './src/screens/currencies/CurrenciesBottom'
 import FavoritesTop from './src/screens/favorites/FavoritesTop'
 import FavoritesContainer from './src/screens/favorites/content/FavoritesContainer'
 import { currencies, initialRates } from './src/constants/currencies'
-import MainContainer from './src/screens/pages/MainContainer'
-import ContactContainer from './src/screens/pages/ContactContainer'
-import CardContainer from './src/screens/pages/CardContainer'
-import TransferContainer from './src/screens/pages/TransferContainer'
-import ServiceContainer from './src/screens/pages/ServiceContainer'
 
-import { darkTheme as defaultTheme } from './src/constants/colors'
 import { darkTheme } from './src/constants/colors'
 import { lightTheme } from './src/constants/colors'
+import { darkTheme as defaultTheme } from './src/constants/colors'
 
 const windowHeigh = Dimensions.get('screen').height
 
@@ -31,7 +27,18 @@ export default function App() {
   const updateTheme = () => {
     appTheme.name === 'darkTheme' ? setAppTheme(lightTheme) : setAppTheme(darkTheme)
   }
-  
+  const styles = getStyle(appTheme)
+  const updateRates = () => {
+    fetch(`https://api.exchangerate.host/latest?base=${fromCurrency}`)
+    .then(res => res.json())
+    .then(responseJson => {
+      setLastRates({...responseJson, hour: moment().format('H:mm')})
+    })
+    .catch(e => {
+      console.log('error: ', e)
+    })
+  }
+
   const addFavoriteCurrency = newCurrency => {
     setFavoriteCurrencies( prevState => [...prevState, newCurrency] )
   }
@@ -47,18 +54,19 @@ export default function App() {
     <PaperProvider>
       <View style={{ minHeight: windowHeigh }}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        {Platform.OS === 'android' && <View style={getStyle(appTheme, 'statusBarUnderlay')} />}
-        
+        {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+
         {
           mainVisible ?
           (
             <Fragment>
-              {/* <CurrenciesTop
+              <CurrenciesTop
                 appTheme={appTheme}
                 fromCurrency={fromCurrency}
                 setFromCurrency={setFromCurrency}
                 amount={amount}
                 setAmount={setAmount}
+                updateRates={updateRates}
               />
               <CurrenciesContainer
                 appTheme={appTheme}
@@ -66,12 +74,14 @@ export default function App() {
                 amount={amount}
                 changeScreen={setMainVisible}
                 allCurrencies={allCurrencies}
+                lastRates={lastRates}
               />
-              <CurrenciesBottom appTheme={appTheme} updateTheme={updateTheme} /> */}
-              {/* <MainContainer/> */}
-              {/* <CardContainer/> */}
-              {/* <TransferContainer/> */}
-              <ServiceContainer/>
+              <CurrenciesBottom
+                appTheme={appTheme}
+                updateTheme={updateTheme}
+                updateRates={updateRates}
+                lastRates={lastRates}
+                />
             </Fragment>
           )
           :
@@ -92,12 +102,11 @@ export default function App() {
   );
 }
 
-const getStyle = (theme, component) => {
-  switch(component) {
-    case 'statusBarUnderlay':
-      return({
-        height: 28,
-        backgroundColor: theme.secondary,
-      })
-  }
-}
+const getStyle = theme => (
+  StyleSheet.create({
+    statusBarUnderlay: {
+      height: 28,
+      backgroundColor: theme.secondary,
+    }
+  })
+)

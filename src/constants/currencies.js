@@ -1,25 +1,26 @@
 const currencies = [
     {
-        name:'ARS',
-        flag:'ars',
+      name: 'ARS',
+      flag: 'ars',
     },
     {
-        name:'USD',
-        flag:'usd',
+      name: 'USD',
+      flag: 'usd',
     },
     {
-        name:'EUR',
-        flag:'eur',
+      name: 'EUR',
+      flag: 'eur',
     },
     {
-        name:'JPY',
-        flag:'jpy',
+      name: 'JPY',
+      flag: 'jpy',
     },
-]
-
-const initialRates = {
+  ]
+  
+  const initialRates = {
     "base": "USD",
     "date": "2020-07-24",
+    "hour": "16:07",
     "rates": {
       "AED": 3.6732,
       "AFN": 76.800009,
@@ -194,10 +195,9 @@ const initialRates = {
       "ZWL": 322.000016,
     },
     "success": true,
-}
-
-export {
+  }
+  
+  export {
     currencies,
-    initialRates
-}
-    
+    initialRates,
+  }

@@ -1,9 +1,19 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image } from 'react-native'
 import { Button } from 'react-native-paper'
+
 import flags from '../../../constants/flags'
 
-const FavoriteCard = ({ appTheme, name, flag, isFavorite, addFavoriteCurrency, updateCurrency }) => {
+const FavoriteCard = ({
+  appTheme,
+  name,
+  flag,
+  isFavorite,
+  addFavoriteCurrency,
+  updateCurrency,
+}) => {
+  const styles = getStyle(appTheme)
+
   let url = ''
   switch(flag) {
     case 'ars':
@@ -26,15 +36,16 @@ const FavoriteCard = ({ appTheme, name, flag, isFavorite, addFavoriteCurrency, u
   }
 
   return(
-    <View style={getStyle(appTheme, 'card')}>
-      <View style={getStyle(appTheme, 'leftContainer')}>
+    <View style={styles.card}>
+
+      <View style={styles.leftContainer}>
         <Image
           source={url}
           style={{ width: 50, height: 50, marginRight: 10 }}
         />
-        <Text style={getStyle(appTheme, 'text')}>{name}</Text>
+        <Text style={styles.text}>{name}</Text>
       </View>
-      <View style={getStyle(appTheme, 'rightContainer')}>
+      <View style={styles.rightContainer}>
         <Button
           onPress={onTouchStar}
           icon={isFavorite ? 'star' : 'star-outline'}
@@ -45,35 +56,31 @@ const FavoriteCard = ({ appTheme, name, flag, isFavorite, addFavoriteCurrency, u
   )
 }
 
-const getStyle = (theme, component) => {
-  switch(component) {
-    case 'card':
-      return({
-        backgroundColor: theme.container,
-        width: '90%',
-        padding: 25,
-        margin: 10,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-      })
-    case 'text':
-      return({
-        color: theme.textPrimary,
-      })
-    case 'leftContainer':
-      return({
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-      })
-    case 'rightContainer':
-      return({
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-      })
-  }
-}
+const getStyle = theme => (
+  StyleSheet.create({
+    card: {
+      backgroundColor: theme.container,
+      width: '90%',
+      padding: 25,
+      margin: 10,
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+    },
+    text: {
+      color: theme.textPrimary,
+    },
+    leftContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    rightContainer: {
+      flex: 1,
+      flexDirection: 'column',
+      alignItems: 'flex-end',
+    }
+  })
+)
 
 export default FavoriteCard 
