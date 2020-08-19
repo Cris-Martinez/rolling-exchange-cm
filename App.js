@@ -2,11 +2,18 @@ import React, { useState, Fragment } from 'react';
 import moment from 'moment'
 import { StyleSheet, View, StatusBar, Platform, Dimensions } from 'react-native'
 import { Provider as PaperProvider } from 'react-native-paper'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import CurrenciesTop from './src/screens/currencies/CurrenciesTop'
 import CurrenciesContainer from './src/screens/currencies/content/CurrenciesContainer'
 import CurrenciesBottom from './src/screens/currencies/CurrenciesBottom'
 import FavoritesTop from './src/screens/favorites/FavoritesTop'
 import FavoritesContainer from './src/screens/favorites/content/FavoritesContainer'
+import MainContainer from './src/screens/pages/MainContainer'
+import ContactContainer from './src/screens/pages/ContactContainer'
+import CardContainer from './src/screens/pages/CardContainer'
+import ServiceContainer from './src/screens/pages/ServiceContainer'
+import TransferContainer from './src/screens/pages/TransferContainer'
 import { currencies, initialRates } from './src/constants/currencies'
 
 import { darkTheme } from './src/constants/colors'
@@ -14,8 +21,9 @@ import { lightTheme } from './src/constants/colors'
 import { darkTheme as defaultTheme } from './src/constants/colors'
 
 const windowHeigh = Dimensions.get('screen').height
+const Stack = createStackNavigator();
 
-export default function App() {
+function App() {
   const [ lastRates, setLastRates ] = useState(initialRates)
   const [ mainVisible, setMainVisible ] = useState(true)
   const [ fromCurrency, setFromCurrency ] = useState('usd')
@@ -53,10 +61,29 @@ export default function App() {
   return (
     <PaperProvider>
       <View style={{ minHeight: windowHeigh }}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-
-        {
+        {/* {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />} */}
+        <NavigationContainer>
+          <Stack.Navigator
+              initialRouteName="Sweet Silver"
+              screenOptions={{
+                  headerStyle: {
+                    backgroundColor: '#5c0011',
+                  },
+                  headerTintColor: '#fff',
+                  headerTitleStyle: {
+                  alignSelf:'center',
+                  },
+                }}
+              >
+            <Stack.Screen name="Sweet Silver" component={MainContainer}/>
+            <Stack.Screen name="Contact" component={ContactContainer} />
+            <Stack.Screen name="Card" component={CardContainer} />
+            <Stack.Screen name="Service" component={ServiceContainer} />
+            <Stack.Screen name="Transfer" component={TransferContainer} />
+          </Stack.Navigator>
+        </NavigationContainer>
+        {/* {
           mainVisible ?
           (
             <Fragment>
@@ -96,7 +123,7 @@ export default function App() {
               />
             </Fragment>
           )
-        }
+        } */}
       </View>
     </PaperProvider>
   );
@@ -110,3 +137,5 @@ const getStyle = theme => (
     }
   })
 )
+
+export default App;

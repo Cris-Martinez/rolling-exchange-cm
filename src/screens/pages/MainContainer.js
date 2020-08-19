@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image } from 'react-native';
-import { Provider as PaperProvider } from 'react-native-paper'
-import { Title, Avatar, Button, Card, Paragraph } from 'react-native-paper'
+import { Avatar, Button, Card, Paragraph } from 'react-native-paper'
+import MenuAction from '../../common/MenuAction'
 import card from '../../assets/card.jpeg'
 import phone from '../../assets/telefono-inteligente.png'
 import cart from '../../assets/tarjeta-de-credito.png'
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
-const MainContainer = () => {
+const MainContainer = ({ navigation }) => {
     const styles = getStyles()
     return(
     <ScrollView style={styles.scrollView}>
@@ -66,10 +66,11 @@ const MainContainer = () => {
                         style={styles.imageCart}
                         source={cart}
                     />
-                    <Text style={styles.imageTextCart} >Ciudadana</Text>
+                    <Text style={styles.imageTextCart}>Ciudadana</Text>
                 </Card>
             </View>
         </SafeAreaView>
+            <MenuAction navigation={navigation}/>
         </ScrollView>
     )
 }
@@ -78,7 +79,7 @@ const getStyles = () => (
     StyleSheet.create({
         mainContainer:{
             flex:1,
-            backgroundColor: 'white',
+            backgroundColor: '#f0f0f0',
         },
         cardContainerBox: {
             backgroundColor: '#fff1f0',
@@ -153,7 +154,7 @@ const getStyles = () => (
         imageTextCart:{
             marginLeft: 21,
             marginTop: 25,
-        }    
+        },           
     })
   )
   
