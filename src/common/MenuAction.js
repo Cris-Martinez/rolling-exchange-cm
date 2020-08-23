@@ -23,12 +23,12 @@ const MenuAction = ({ navigation }) => {
                     onPress: () => navigation.navigate('Contact'),
                   },
                   {
-                    icon: 'arrow-down-circle',
+                    icon: 'credit-card-outline',
                     label: 'Tarjeta',
                     onPress: () => navigation.navigate('Card'),
                   },
                   {
-                    icon: 'credit-card-outline',
+                    icon: 'arrow-down-circle',
                     label: 'Recargas y pagos',
                     onPress: () => navigation.navigate('Service'),
                   },
@@ -40,7 +40,7 @@ const MenuAction = ({ navigation }) => {
                   {
                     icon: 'arrow-collapse',
                     label: 'Transferencias',
-                    onPress: () => navigation.navigate('Transfer'),
+                    onPress: () => navigation.navigate('Transferencias'),
                   },
                 ]}
                 onStateChange={onStateChange}

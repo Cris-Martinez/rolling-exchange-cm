@@ -68,11 +68,11 @@ function App() {
               initialRouteName="Sweet Silver"
               screenOptions={{
                   headerStyle: {
-                    backgroundColor: '#5c0011',
+                    backgroundColor: '#3f6600',
                   },
                   headerTintColor: '#fff',
                   headerTitleStyle: {
-                  alignSelf:'center',
+                  
                   },
                 }}
               >
@@ -80,7 +80,7 @@ function App() {
             <Stack.Screen name="Contact" component={ContactContainer} />
             <Stack.Screen name="Card" component={CardContainer} />
             <Stack.Screen name="Service" component={ServiceContainer} />
-            <Stack.Screen name="Transfer" component={TransferContainer} />
+            <Stack.Screen name="Transferencias" component={TransferContainer} />
           </Stack.Navigator>
         </NavigationContainer>
         {/* {
