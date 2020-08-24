@@ -12,6 +12,14 @@ const TransferContainer = () => {
     const showModal = () => setIsVisible(true);
     const showScanner = () => setIsVisibleQR(true);
 
+    {
+        if(isVisibleQR) {
+            return(
+                <Scanner />
+            )
+        }
+    }
+
     return(
         <ScrollView>
             <SafeAreaView style={{flex: 1, marginTop:20}}>
@@ -52,9 +60,6 @@ const TransferContainer = () => {
                 </View>
                 {
                     isVisible ? <Modal show={isVisible} setIsVisible={setIsVisible}/> : null
-                }
-                {
-                    isVisibleQR ? <Scanner/> : null
                 }
             </SafeAreaView>
         </ScrollView>
