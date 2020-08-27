@@ -14,6 +14,7 @@ import ContactContainer from './src/screens/pages/ContactContainer'
 import CardContainer from './src/screens/pages/CardContainer'
 import ServiceContainer from './src/screens/pages/ServiceContainer'
 import TransferContainer from './src/screens/pages/TransferContainer'
+import ProfileContainer from './src/screens/pages/ProfileContainer'
 import { currencies, initialRates } from './src/constants/currencies'
 
 import { darkTheme } from './src/constants/colors'
@@ -77,10 +78,11 @@ function App() {
                 }}
               >
             <Stack.Screen name="Sweet Silver" component={MainContainer}/>
-            <Stack.Screen name="Contact" component={ContactContainer} />
-            <Stack.Screen name="Card" component={CardContainer} />
-            <Stack.Screen name="Service" component={ServiceContainer} />
+            <Stack.Screen name="Contacto" component={ContactContainer} />
+            <Stack.Screen name="Tarjeta" component={CardContainer} />
+            <Stack.Screen name="Recargas y Pagos" component={ServiceContainer} />
             <Stack.Screen name="Transferencias" component={TransferContainer} />
+            <Stack.Screen name="Perfil" component={ProfileContainer} />
           </Stack.Navigator>
         </NavigationContainer>
         {/* {

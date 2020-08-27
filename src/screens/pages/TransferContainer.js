@@ -47,13 +47,13 @@ const TransferContainer = () => {
                 </View>
                 <Divider/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{ width: 200, height: 110, marginLeft: 130}}>
+                    <View style={{ width: 200, height: 110, marginLeft: 83}}>
                         <Text style={{ textAlign:'center', marginTop:40, fontSize:15 }}>Cuando sumes a alguien a tu lista lo vas a ver acá 😄</Text>
                     </View>
                 </View>
                 <Divider/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{marginLeft:115, width: 200, height: 150, marginTop:100 }}>
+                    <View style={{marginLeft:65, width: 200, height: 150, marginTop:80 }}>
                         <Button mode="contained" onPress={showModal} style={{ marginTop:40, backgroundColor:'#096dd9', width:235 }}>Nueva transferencia</Button>
                         <Button icon="qrcode-scan" color="#096dd9" style={{marginTop:13, marginLeft: 40}} onPress={showScanner}>Escanear QR</Button>
                     </View>

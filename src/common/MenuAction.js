@@ -16,21 +16,21 @@ const MenuAction = ({ navigation }) => {
                 open={open}
                 icon={open ? 'flash-circle' : 'bank'}
                 actions={[
-                  { icon: 'cogs', label: 'Configuracion', onPress: () => console.log('Pressed star') },
+                  { icon: 'cogs', label: 'Configuracion', onPress: () => navigation.navigate('Perfil') },
                   {
                     icon: 'account-box',
                     label: 'Contacto',
-                    onPress: () => navigation.navigate('Contact'),
+                    onPress: () => navigation.navigate('Contacto'),
                   },
                   {
                     icon: 'credit-card-outline',
                     label: 'Tarjeta',
-                    onPress: () => navigation.navigate('Card'),
+                    onPress: () => navigation.navigate('Tarjeta'),
                   },
                   {
                     icon: 'arrow-down-circle',
                     label: 'Recargas y pagos',
-                    onPress: () => navigation.navigate('Service'),
+                    onPress: () => navigation.navigate('Recargas y Pagos'),
                   },
                   {
                     icon: 'cash-multiple',

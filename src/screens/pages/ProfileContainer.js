@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, ScrollView, SafeAreaView } from 'react-native';
-import { Divider, List, TextInput, IconButton } from 'react-native-paper'
+import { Divider, List, TextInput, IconButton, Avatar,Text  } from 'react-native-paper'
 
-const ServiceContainer = () => {
+const ProfileContainer = () => {
     const styles = getStyles()
     const [ company, setCompany ] = useState('')
     const data = [
@@ -54,27 +54,21 @@ const ServiceContainer = () => {
         <ScrollView>
             <SafeAreaView style={{flex: 1, marginTop:20}}>
             <View style={styles.favoritesSearchbar}>
-                <IconButton
-                            onPress={() => searchCompany(company)}
-                            icon="magnify-plus-outline"
-                            color="black"
-                            size={35}
-                />
-                <TextInput
-                    style={styles.input}
-                    label="Buscar por empresa"
-                    value={company}
-                    onChangeText={company => setCompany(company)}
-                />
+                <Avatar.Image size={180} source={require('../../assets/avatar.jpg')} />
             </View>
                 <Divider/>
-                {dataCompany.map(c => 
-                  <List.Item
-                        key={c.title}
-                        title={c.title}
-                        left={props => <List.Icon {...props} icon="checkbox-blank-circle" />}
-                    />
-                )}
+                <View style={styles.profile}>
+                    <Text style={styles.text}>Nombre: </Text>
+                    <Text style={styles.textArea}>Cristian Esteban Martinez</Text>
+                    <Text style={styles.text}>Numero de Tarjeta: </Text>
+                    <Text style={styles.textArea}>4444 5555 6666 7777</Text>
+                    <Text style={styles.text}>CBU: </Text>
+                    <Text style={styles.textArea}>4444 5555 6666 7777 8888</Text>
+                    <Text style={styles.text}>Domicilio: </Text>
+                    <Text style={styles.textArea}>Marcos Paz 1834</Text>
+                    <Text style={styles.text}>DNI: </Text>
+                    <Text style={styles.textArea}>44556677</Text>
+                </View>
             </SafeAreaView>
         </ScrollView>
     )
@@ -90,13 +84,34 @@ const getStyles = () => (
             width: '100%',
             marginBottom:45
           },
+          profile:{
+            justifyContent: 'center',
+            marginBottom: 40
+          },
           input: {
             width: '70%',
             paddingBottom: 10,
             height: 60
-          }
+          },
+        text:{
+          fontWeight:'bold',
+          marginTop: 13,
+          marginLeft: 40,
+        },
+        textArea:{
+          fontWeight:'bold',
+          marginTop: 13,
+          marginLeft: 40,
+          backgroundColor:'#bfbfbf',
+          borderRadius: 20,
+          borderWidth: 1,
+          borderColor: "#8c8c8c",
+          width:170,
+          height:35,
+          padding: 10
+        },
     })
   )
   
 
-export default ServiceContainer
+export default ProfileContainer

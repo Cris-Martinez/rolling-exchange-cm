@@ -11,7 +11,7 @@ const ContactContainer = () => {
         <ScrollView>
             <SafeAreaView style={{flex: 1, marginTop:20}}>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{marginLeft:15, width: 300, height: 110 }}>
+                    <View style={{marginLeft:15, width: 250, height: 110 }}>
                         <Paragraph style={{ marginTop:15, marginBottom:15}}>Teléfonos Útiles (Lunes a Viernes de 8hrs a 22hrs. Sábado y domingo de 8hrs a 20hrs.)</Paragraph>
                         <Text style={{ marginTop:5, marginBottom:15, fontWeight:'bold'}}>08109998889</Text>
                     </View>
@@ -24,7 +24,7 @@ const ContactContainer = () => {
                 </View>
                 <Divider/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{marginLeft:15, width: 300, height: 110 }}>
+                    <View style={{marginLeft:15, width: 250, height: 110 }}>
                         <Text style={{ marginTop:15, marginBottom:15}}>Chat</Text>
                         <Text style={{ marginTop:5, marginBottom:15, fontWeight:'bold'}}>¿Necesitás ayuda?</Text>
                     </View>
@@ -37,7 +37,7 @@ const ContactContainer = () => {
                 </View>
                 <Divider/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{marginLeft:15, width: 300, height: 110 }}>
+                    <View style={{marginLeft:15, width: 250, height: 110 }}>
                         <Text style={{ marginTop:15, marginBottom:15}}>Comunidad</Text>
                         <Text style={{ marginTop:5, marginBottom:15, fontWeight:'bold'}}>Resolvé tus datos</Text>
                     </View>
@@ -50,7 +50,7 @@ const ContactContainer = () => {
                 </View>
                 <Divider/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{marginLeft:15, width: 300, height: 130 }}>
+                    <View style={{marginLeft:15, width: 250, height: 130 }}>
                         <Paragraph style={{ marginTop:15, marginBottom:15}}>Tarjeta AMEX desde el exterior</Paragraph>    
                         <Text style={{ marginTop:5, marginBottom:15, fontWeight:'bold'}}>Número internacional (cobro revertido)</Text>
                         <Text style={{ marginBottom:20, fontWeight:'bold'}}>001-312-999-8888</Text>
@@ -64,7 +64,7 @@ const ContactContainer = () => {
                 </View>
                 <Divider/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{marginLeft:15, width: 300, height: 130 }}>
+                    <View style={{marginLeft:15, width: 250, height: 130 }}>
                         <Paragraph style={{ marginTop:15, marginBottom:15}}>Número gratuito dentro de Estados Unidos</Paragraph>    
                         <Text style={{ marginTop:5, marginBottom:15, fontWeight:'bold'}}>001-999-888-9898</Text>
                     </View>
@@ -87,7 +87,7 @@ const getStyles = () => (
             width: 5,
             height: 10,
             padding:20,
-            marginLeft:70,
+            marginLeft:25,
             marginTop:35
         },
     })

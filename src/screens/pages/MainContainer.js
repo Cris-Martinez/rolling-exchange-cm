@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image } from 'react-native';
-import { Avatar, Button, Card, Paragraph } from 'react-native-paper'
+import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image, Linking, Share } from 'react-native';
+import { Avatar, Button, Card, Paragraph, IconButton } from 'react-native-paper'
 import MenuAction from '../../common/MenuAction'
 import card from '../../assets/card.jpeg'
 import phone from '../../assets/telefono-inteligente.png'
@@ -10,16 +10,43 @@ const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
 const MainContainer = ({ navigation }) => {
     const styles = getStyles()
+
+    const onShare = async () => {
+        try {
+          const result = await Share.share({
+            message:
+              "CBU:  Alias: cristian.martinez / CBU: 4444 5555 6666 7777 8888",
+            });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+      };
+
     return(
     <ScrollView style={styles.scrollView}>
         <SafeAreaView style={styles.mainContainer}>
             <Text style={styles.text}>Mi caja de ahorro</Text>
             <Card style={styles.cardContainerBox}>
                 <Card.Content>
-                    <View style={styles.iconShareContainer}>
-                        <Button icon="share-variant" />
+                    <View >
+                        <IconButton
+                            onPress={onShare}
+                            icon="share-variant"
+                            color="black"
+                            size={35}
+                            style={{marginLeft:230}}
+                        />
                     </View>
-                    <View>
+                    <View style={{marginTop:'-19%'}}>
                         <Paragraph>Alias: cristian.martinez</Paragraph>
                     </View>
                     <View>
@@ -95,9 +122,9 @@ const getStyles = () => (
             marginTop: 20,
         },
         iconShareContainer:{
-            alignSelf: 'flex-end',
             width: 40,
             height: 5,
+            marginLeft: 310,
         },
         text:{
             padding:15,
