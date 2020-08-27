@@ -35,7 +35,7 @@ const MenuAction = ({ navigation }) => {
                   {
                     icon: 'cash-multiple',
                     label: 'Operaciones de cambio',
-                    onPress: () => console.log('Pressed email'),
+                    onPress: () => navigation.navigate('Operacion de Cambio'),
                   },
                   {
                     icon: 'arrow-collapse',

@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, ScrollView, SafeAreaView } from 'react-native';
 import { Divider, List, TextInput, IconButton, Avatar,Text  } from 'react-native-paper'
+import BottonContainer from '../pages/BottonContainer'
+
+import { darkTheme } from '../../constants/colors'
+import { lightTheme } from '../../constants/colors'
+import { darkTheme as defaultTheme } from '../../constants/colors'
 
 const ProfileContainer = () => {
     const styles = getStyles()
     const [ company, setCompany ] = useState('')
+    const [ appTheme, setAppTheme ] = useState(defaultTheme)
+    const updateTheme = () => {
+      appTheme.name === 'darkTheme' ? setAppTheme(lightTheme) : setAppTheme(darkTheme)
+     }
     const data = [
         {
           title: "Gasnor",
@@ -69,6 +78,10 @@ const ProfileContainer = () => {
                     <Text style={styles.text}>DNI: </Text>
                     <Text style={styles.textArea}>44556677</Text>
                 </View>
+                <BottonContainer
+                        appTheme={appTheme}
+                        updateTheme={updateTheme}
+                        />
             </SafeAreaView>
         </ScrollView>
     )

@@ -4,60 +4,56 @@ import { StyleSheet, View, StatusBar, Platform, Dimensions } from 'react-native'
 import { Provider as PaperProvider } from 'react-native-paper'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import CurrenciesTop from './src/screens/currencies/CurrenciesTop'
-import CurrenciesContainer from './src/screens/currencies/content/CurrenciesContainer'
-import CurrenciesBottom from './src/screens/currencies/CurrenciesBottom'
-import FavoritesTop from './src/screens/favorites/FavoritesTop'
-import FavoritesContainer from './src/screens/favorites/content/FavoritesContainer'
 import MainContainer from './src/screens/pages/MainContainer'
 import ContactContainer from './src/screens/pages/ContactContainer'
 import CardContainer from './src/screens/pages/CardContainer'
 import ServiceContainer from './src/screens/pages/ServiceContainer'
 import TransferContainer from './src/screens/pages/TransferContainer'
 import ProfileContainer from './src/screens/pages/ProfileContainer'
-import { currencies, initialRates } from './src/constants/currencies'
+import OperationContainer from './src/screens/pages/OperationContainer'
+// import { currencies, initialRates } from './src/constants/currencies'
 
-import { darkTheme } from './src/constants/colors'
-import { lightTheme } from './src/constants/colors'
-import { darkTheme as defaultTheme } from './src/constants/colors'
+// import { darkTheme } from './src/constants/colors'
+// import { lightTheme } from './src/constants/colors'
+// import { darkTheme as defaultTheme } from './src/constants/colors'
 
-const windowHeigh = Dimensions.get('screen').height
-const Stack = createStackNavigator();
+  const windowHeigh = Dimensions.get('screen').height
+  const Stack = createStackNavigator();
 
 function App() {
-  const [ lastRates, setLastRates ] = useState(initialRates)
-  const [ mainVisible, setMainVisible ] = useState(true)
-  const [ fromCurrency, setFromCurrency ] = useState('usd')
-  const [ amount, setAmount ] = useState('')
-  const [ favoriteCurrencies, setFavoriteCurrencies ] = useState([])
-  const [ allCurrencies, setAllCurrencies ] =
-    useState(currencies.map(curr => ({ ...curr, isFavorite: false })))
-  const [ appTheme, setAppTheme ] = useState(defaultTheme)
-  const updateTheme = () => {
-    appTheme.name === 'darkTheme' ? setAppTheme(lightTheme) : setAppTheme(darkTheme)
-  }
-  const styles = getStyle(appTheme)
-  const updateRates = () => {
-    fetch(`https://api.exchangerate.host/latest?base=${fromCurrency}`)
-    .then(res => res.json())
-    .then(responseJson => {
-      setLastRates({...responseJson, hour: moment().format('H:mm')})
-    })
-    .catch(e => {
-      console.log('error: ', e)
-    })
-  }
+  // const [ lastRates, setLastRates ] = useState(initialRates)
+  // const [ mainVisible, setMainVisible ] = useState(true)
+  // const [ fromCurrency, setFromCurrency ] = useState('usd')
+  // const [ amount, setAmount ] = useState('')
+  // const [ favoriteCurrencies, setFavoriteCurrencies ] = useState([])
+  // const [ allCurrencies, setAllCurrencies ] =
+  //   useState(currencies.map(curr => ({ ...curr, isFavorite: false })))
+  // const [ appTheme, setAppTheme ] = useState(defaultTheme)
+  // const updateTheme = () => {
+  //   appTheme.name === 'darkTheme' ? setAppTheme(lightTheme) : setAppTheme(darkTheme)
+  // }
+  // const styles = getStyle(appTheme)
+  // const updateRates = () => {
+  //   fetch(`https://api.exchangerate.host/latest?base=${fromCurrency}`)
+  //   .then(res => res.json())
+  //   .then(responseJson => {
+  //     setLastRates({...responseJson, hour: moment().format('H:mm')})
+  //   })
+  //   .catch(e => {
+  //     console.log('error: ', e)
+  //   })
+  // }
 
-  const addFavoriteCurrency = newCurrency => {
-    setFavoriteCurrencies( prevState => [...prevState, newCurrency] )
-  }
+  // const addFavoriteCurrency = newCurrency => {
+  //   setFavoriteCurrencies( prevState => [...prevState, newCurrency] )
+  // }
 
-  const updateCurrency = ( name, isFavorite ) => {
-    let temp_allCurrencies = allCurrencies
-    const objIndex = allCurrencies.findIndex((obj => obj.name === name))
-    temp_allCurrencies[objIndex].isFavorite = !isFavorite
-    setAllCurrencies(temp_allCurrencies)
-  }
+  // const updateCurrency = ( name, isFavorite ) => {
+  //   let temp_allCurrencies = allCurrencies
+  //   const objIndex = allCurrencies.findIndex((obj => obj.name === name))
+  //   temp_allCurrencies[objIndex].isFavorite = !isFavorite
+  //   setAllCurrencies(temp_allCurrencies)
+  // }
 
   return (
     <PaperProvider>
@@ -83,6 +79,23 @@ function App() {
             <Stack.Screen name="Recargas y Pagos" component={ServiceContainer} />
             <Stack.Screen name="Transferencias" component={TransferContainer} />
             <Stack.Screen name="Perfil" component={ProfileContainer} />
+            <Stack.Screen name="Operacion de Cambio" 
+                          component={OperationContainer}
+                          // initialParams={{ 
+                          //                 appTheme: appTheme, 
+                          //                 fromCurrency: fromCurrency,
+                          //                 setFromCurrency: setFromCurrency,
+                          //                 amount: amount,
+                          //                 setAmount: setAmount,
+                          //                 updateRates: updateRates,
+                          //                 changeScreen: setMainVisible,
+                          //                 allCurrencies: allCurrencies,
+                          //                 lastRates: lastRates,
+                          //                 updateTheme: updateTheme,
+                          //                 addFavoriteCurrency: addFavoriteCurrency,
+                          //                 updateCurrency: updateCurrency,
+                          //                 }} />
+                          />
           </Stack.Navigator>
         </NavigationContainer>
         {/* {

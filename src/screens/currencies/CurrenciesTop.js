@@ -104,6 +104,7 @@ const getStyle = theme => (
       flexDirection: 'row',
       width: '100%',
       backgroundColor: theme.secondary,
+      marginTop: '-20%'
     },
     input: {
       width: '60%',
