@@ -17,6 +17,7 @@ const FavoritesTop = ({ appTheme, changeScreen, searchCurrency }) => {
         onPress={() => changeScreen(true)}
         color={appTheme.link}
         icon="keyboard-backspace"
+        style={{marginTop:'-10%'}}
       />
       <TextInput
         style={styles.input}
@@ -37,11 +38,14 @@ const getStyle = theme => (
       flexDirection: 'row',
       width: '100%',
       backgroundColor: theme.secondary,
+      marginTop:'-6%',
+      height:120
     },
     input: {
       width: '60%',
       paddingBottom: 10,
-      height: 60
+      height: 50,
+      marginTop:'-10%'
     }
   })
 )

@@ -42,7 +42,7 @@ const getStyle = theme => (
       backgroundColor: theme.primary,
     },
     buttonText: {
-      color: theme.link,
+      color: 'white',
     }
   })
 )

@@ -59,7 +59,7 @@ const FavoriteCard = ({
         <Button
           onPress={onTouchStar}
           icon={isFavorite ? 'star' : 'star-outline'}
-          color={appTheme.link}
+          color="white"
         />
       </View>
     </View>

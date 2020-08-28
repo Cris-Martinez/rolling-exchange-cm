@@ -10,7 +10,7 @@ const CurrenciesBottom = ({ appTheme, updateTheme, updateRates, lastRates }) => 
   return(
     <View style={styles.bottomContainer}>
       <Button
-        color={appTheme.link}
+        color="white"
         icon="update"
         style={styles.button}
         onPress={updateRates}
@@ -20,7 +20,7 @@ const CurrenciesBottom = ({ appTheme, updateTheme, updateRates, lastRates }) => 
         <Text style={styles.updateText}>{moment(lastRates.date).locale('es').format('LL')}   -   {lastRates.hour}</Text>
       </View>
       <Button
-        color={appTheme.link}
+        color="white"
         icon="theme-light-dark"
         style={styles.button}
         onPress={updateTheme}

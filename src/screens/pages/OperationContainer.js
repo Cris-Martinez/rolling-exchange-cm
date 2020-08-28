@@ -64,7 +64,7 @@ function OperationContainer(){
     if(term !== '' && term.length > 2) {
       resultCurrencies = currentCurrencies.filter(
         currency => {
-          const formattedCurrency = currency.nickname.toLowerCase()
+          const formattedCurrency = currency.name.toLowerCase()
           const formattedTerm = term.toLowerCase()
           return formattedCurrency.includes(formattedTerm)
         }

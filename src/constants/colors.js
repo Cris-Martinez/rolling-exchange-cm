@@ -1,11 +1,11 @@
 export const darkTheme = {
     name: 'darkTheme',
     primary: '#171921',
-    secondary: '#F7F7F7',
+    secondary: '#bfbfbf',
     container: '#242D36',
     textPrimary: '#FFFFFF',
     textSecondary: '#000000',
-    link: '#F85D5D',
+    link: 'black',
   }
   export const lightTheme = {
     name: 'lightTheme',
