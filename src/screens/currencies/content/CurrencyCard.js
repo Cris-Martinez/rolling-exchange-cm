@@ -25,6 +25,18 @@ const CurrencyCard = ({ name, flag, appTheme, fromCurrency, amount, lastRates })
       url = flags.usd
       rate = lastRates.rates.USD
       break
+    case 'brl':
+      url = flags.brl
+      rate = lastRates.rates.BRL
+      break
+    case 'clp':
+      url = flags.clp
+      rate = lastRates.rates.CLP
+      break
+    case 'gbp':
+      url = flags.gbp
+      rate = lastRates.rates.GBP
+      break
   }
 
   return(

@@ -28,6 +28,15 @@ const FavoriteCard = ({
     case 'usd':
       url = flags.usd
       break
+    case 'brl':
+      url = flags.brl
+      break
+    case 'clp':
+      url = flags.clp
+      break
+    case 'gbp':
+      url = flags.gbp
+      break
   }
 
   const onTouchStar = () => {
@@ -41,7 +50,7 @@ const FavoriteCard = ({
       <View style={styles.leftContainer}>
         <Image
           source={url}
-          style={{ width: 50, height: 50, marginRight: 10 }}
+          style={{ width: 90, height: 60, marginRight: 20 }}
         />
         <Text style={styles.text}>{name}</Text>
       </View>

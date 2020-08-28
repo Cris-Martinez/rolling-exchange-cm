@@ -15,6 +15,18 @@ const currencies = [
       name: 'JPY',
       flag: 'jpy',
     },
+    {
+      name: 'BRL',
+      flag: 'brl',
+    },
+    {
+      name: 'CLP',
+      flag: 'clp',
+    },
+    {
+      name: 'GBP',
+      flag: 'gbp',
+    },
   ]
   
   const initialRates = {
