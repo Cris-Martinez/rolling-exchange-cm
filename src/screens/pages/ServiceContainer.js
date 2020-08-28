@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, View, ScrollView, SafeAreaView, Dimensions } from 'react-native';
 import { Divider, List, TextInput, IconButton } from 'react-native-paper'
+
+const windowHeigh = Dimensions.get('screen').height
 
 const ServiceContainer = () => {
     const styles = getStyles()
@@ -52,7 +54,7 @@ const ServiceContainer = () => {
 
     return(
         <ScrollView>
-            <SafeAreaView style={{flex: 1, marginTop:20}}>
+            <SafeAreaView style={{flex: 1, marginTop:20,minHeight: windowHeigh}}>
             <View style={styles.favoritesSearchbar}>
                 <IconButton
                             onPress={() => searchCompany(company)}
@@ -83,7 +85,6 @@ const ServiceContainer = () => {
 const getStyles = () => (
     StyleSheet.create({
         favoritesSearchbar: {
-            flex: 1.6,
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row',

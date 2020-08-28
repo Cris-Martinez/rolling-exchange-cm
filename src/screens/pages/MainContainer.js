@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image, Linking, Share } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image, Linking, Share, Dimensions } from 'react-native';
 import { Avatar, Button, Card, Paragraph, IconButton } from 'react-native-paper'
 import MenuAction from '../../common/MenuAction'
 import card from '../../assets/card.jpeg'
 import phone from '../../assets/telefono-inteligente.png'
 import cart from '../../assets/tarjeta-de-credito.png'
+
+const windowHeigh = Dimensions.get('screen').height
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
@@ -43,7 +45,7 @@ const MainContainer = ({ navigation }) => {
                             icon="share-variant"
                             color="black"
                             size={35}
-                            style={{marginLeft:230}}
+                            style={{alignSelf:'flex-end'}}
                         />
                     </View>
                     <View style={{marginTop:'-19%'}}>
@@ -68,7 +70,7 @@ const MainContainer = ({ navigation }) => {
             <Card style={styles.cardContainerProduct}>
                 <Card.Content>
                     <View style={styles.iconShareContainer}>
-                        <Button icon="cash-multiple" />
+                        <IconButton icon="cash-multiple" />
                     </View>
                     <View>
                         <Paragraph>Plazo Fijo</Paragraph>
@@ -76,11 +78,11 @@ const MainContainer = ({ navigation }) => {
                     <View>
                         <Paragraph>TNA 32%</Paragraph>
                     </View>
-                    <Button >Solicitar</Button>
+                    <Button color="black" style={{marginTop:10}}>Solicitar</Button>
                 </Card.Content>
             </Card>
             <Text style={styles.text}>Recargas</Text>
-            <View style={{flex: 1, flexDirection: 'row'}}>
+            <View style={{alignSelf:'center', flexDirection: 'row'}}>
                 <Card style={styles.cardContainerRefills}>
                     <Image
                         style={styles.imagePhone}
@@ -107,6 +109,7 @@ const getStyles = () => (
         mainContainer:{
             flex:1,
             backgroundColor: '#f0f0f0',
+            minHeight: windowHeigh
         },
         cardContainerBox: {
             backgroundColor: '#fff1f0',
@@ -124,7 +127,7 @@ const getStyles = () => (
         iconShareContainer:{
             width: 40,
             height: 5,
-            marginLeft: 310,
+            alignSelf:'flex-end'
         },
         text:{
             padding:15,
@@ -159,7 +162,7 @@ const getStyles = () => (
             marginBottom: 100,
             borderRadius: 10,
             marginRight: 10,
-            marginLeft: 50,
+            marginLeft: 10,
             borderWidth: 1,
             borderColor: "#8c8c8c",
         },

@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, View, ScrollView, SafeAreaView, Dimensions } from 'react-native';
 import { Divider, List, TextInput, IconButton, Avatar,Text  } from 'react-native-paper'
 import BottonContainer from '../pages/BottonContainer'
 
 import { darkTheme } from '../../constants/colors'
 import { lightTheme } from '../../constants/colors'
 import { darkTheme as defaultTheme } from '../../constants/colors'
+
+const windowHeigh = Dimensions.get('screen').height
 
 const ProfileContainer = () => {
     const styles = getStyles()
@@ -61,7 +63,7 @@ const ProfileContainer = () => {
 
     return(
         <ScrollView>
-            <SafeAreaView style={{flex: 1, marginTop:20}}>
+            <SafeAreaView style={{flex: 1, marginTop:20,minHeight: windowHeigh}}>
             <View style={styles.favoritesSearchbar}>
                 <Avatar.Image size={180} source={require('../../assets/avatar.jpg')} />
             </View>

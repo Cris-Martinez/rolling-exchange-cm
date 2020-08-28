@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image, Dimensions } from 'react-native';
 import { Paragraph, Divider, Button, IconButton } from 'react-native-paper'
 import Modal from '../../common/Modal'
 import Scanner from '../../common/BarCodeScanner'
+
+const windowHeigh = Dimensions.get('screen').height
 
 const TransferContainer = () => {
     const styles = getStyles()
@@ -22,15 +24,15 @@ const TransferContainer = () => {
 
     return(
         <ScrollView>
-            <SafeAreaView style={{flex: 1, marginTop:20}}>
-                <View style={{flex: 1, flexDirection: 'row'}}>
+            <SafeAreaView style={{flex: 1, marginTop:20, minHeight: windowHeigh}}>
+                <View style={{flexDirection: 'row'}}>
                     <View style={{marginLeft:15, width: 300, height: 110 }}>
                         <Paragraph style={{ marginTop:15, marginBottom:15, fontSize: 15}}>¿A quién le querés mandar plata?</Paragraph>
-                        <Text style={{ marginTop:5, marginBottom:15, fontWeight:'bold',fontSize: 13}}>Contacto Sweet Silver</Text>
+                        <Text style={{ marginTop:5, fontWeight:'bold',fontSize: 13}}>Contacto Sweet Silver</Text>
                     </View>
                 </View>
                 <Divider/>
-                <View style={{flex: 1, flexDirection: 'row', alignSelf:'center'}}>
+                <View style={{flexDirection: 'row', alignSelf:'center'}}>
                     <View>
                         <IconButton
                             onPress={() => console.log('Añadir Contacto')}
@@ -42,20 +44,20 @@ const TransferContainer = () => {
                     </View>    
                     <View style={{marginLeft:15, width: 300, height: 110 }}>
                         <Text style={{ marginTop:25, marginBottom:15, fontWeight:'bold', fontSize: 15}}>Agregar contacto</Text>
-                        <Text style={{ marginBottom:15, fontSize: 13 }}>Transferí a tus contactos</Text>
+                        <Text style={{ fontSize: 13 }}>Transferí a tus contactos</Text>
                     </View>
                 </View>
                 <Divider/>
-                <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{ width: 200, height: 110, marginLeft: 83}}>
+                <View style={{flexDirection: 'row', alignSelf:'center'}}>
+                    <View style={{ width: 200, height: 110}}>
                         <Text style={{ textAlign:'center', marginTop:40, fontSize:15 }}>Cuando sumes a alguien a tu lista lo vas a ver acá 😄</Text>
                     </View>
                 </View>
                 <Divider/>
-                <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{marginLeft:65, width: 200, height: 150, marginTop:80 }}>
+                <View style={{flexDirection: 'row', alignSelf:'center'}}>
+                    <View style={{marginTop:80}}>
                         <Button mode="contained" onPress={showModal} style={{ marginTop:40, backgroundColor:'#096dd9', width:235 }}>Nueva transferencia</Button>
-                        <Button icon="qrcode-scan" color="#096dd9" style={{marginTop:13, marginLeft: 40}} onPress={showScanner}>Escanear QR</Button>
+                        <Button icon="qrcode-scan" color="#096dd9" style={{marginTop:13}} onPress={showScanner}>Escanear QR</Button>
                     </View>
                 </View>
                 {

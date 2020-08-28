@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, SafeAreaView, Image, ImageBackground, Dimensions } from 'react-native';
 import { Title, Card, Divider, Switch, IconButton } from 'react-native-paper'
 import card from '../../assets/card.jpeg'
 import cart from '../../assets/tarjeta-de-credito.png'
@@ -8,6 +8,7 @@ import retirar from '../../assets/retirar.png'
 import seguridad from '../../assets/seguridad.png'
 import agregar from '../../assets/mas.png'
 
+const windowHeigh = Dimensions.get('screen').height
 
 const CardContainer = () => {
     const styles = getStyles()
@@ -21,14 +22,14 @@ const CardContainer = () => {
 
     return(
         <ScrollView>
-            <SafeAreaView style={{flex: 1}}>
+            <SafeAreaView style={{flex: 1,minHeight: windowHeigh}}>
                 <ImageBackground source={image} style={styles.image}>
                     <Card style={styles.cardCoverContainer}>
                         <Card.Cover style={styles.coverContainer} source={card}/>
                         <Title style={styles.title}>Tu tarjeta Sweet Silver</Title>
                     </Card>
                 </ImageBackground>
-                <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{flexDirection: 'row'}}>
                     <View style={{marginLeft:15, width: 250, height: 110 }}>
                         <Text style={{ marginTop:18, marginBottom:15, fontWeight:'bold'}}>Congelar</Text>
                         <Text style={{ marginTop:5, marginBottom:15}}>Deshabilitar temporalmente la cuenta.</Text>
@@ -38,7 +39,7 @@ const CardContainer = () => {
                     </View>
                 </View>
                 <Divider/>
-                <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{flexDirection: 'row'}}>
                     <View>
                         <IconButton
                             onPress={() => console.log('Añadir Contacto')}
@@ -55,7 +56,7 @@ const CardContainer = () => {
                     </View>
                 </View>
                 <Divider/>
-                <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row'}}>
                     <View>
                         <IconButton
                             onPress={() => console.log('Añadir Contacto')}
@@ -72,7 +73,7 @@ const CardContainer = () => {
                     </View>
                 </View>
                 <Divider/>
-                <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{flexDirection: 'row'}}>
                     <View>
                         <IconButton
                             onPress={() => console.log('Añadir Contacto')}
@@ -105,7 +106,7 @@ const getStyles = () => (
             marginTop:45,
             width: 200,
             height: 10,
-            marginLeft: 135,
+            alignSelf:'center',
         },
         coverContainer:{
             height: 100
