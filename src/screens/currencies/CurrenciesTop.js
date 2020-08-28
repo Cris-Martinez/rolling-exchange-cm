@@ -6,10 +6,13 @@ const CurrenciesTop = ({ appTheme, fromCurrency, setFromCurrency, amount, setAmo
   const styles = getStyle(appTheme)
   const [ showSelection, setShowSelection ] = useState(false)
   const requireFlag = {
-    ars: require('../../assets/flags/ars.png'),
-    usd: require('../../assets/flags/usd.png'),
-    eur: require('../../assets/flags/eur.png'),
-    jpy: require('../../assets/flags/jpy.png'),
+    ars: require('../../assets/flags/ars.jpg'),
+    usd: require('../../assets/flags/usd.jpg'),
+    eur: require('../../assets/flags/eur.jpg'),
+    jpy: require('../../assets/flags/jpy.jpg'),
+    brl: require('../../assets/flags/real.jpg'),
+    clp: require('../../assets/flags/chileno.jpg'),
+    gbp: require('../../assets/flags/libra.jpg'),
   }
   const onHandleShowSelection = () => {
     setShowSelection(!showSelection)
@@ -27,7 +30,8 @@ const CurrenciesTop = ({ appTheme, fromCurrency, setFromCurrency, amount, setAmo
           <TouchableOpacity style={styles.fromCurrencyButton} onPress={onHandleShowSelection}>
             <Image
               source={requireFlag[fromCurrency]}
-              style={{ width: 50, height: 50 }}
+              style={{ width: 50, height: 50, borderRadius: 10,
+                borderWidth: 1, }}
             />
             <Text style={styles.fromCurrencyName}>{fromCurrency.toUpperCase()}</Text>
           </TouchableOpacity>
@@ -56,7 +60,8 @@ const CurrenciesTop = ({ appTheme, fromCurrency, setFromCurrency, amount, setAmo
               <TouchableOpacity onPress={() => onHandleSelectCurrency('ars')}>
                 <Image
                   source={requireFlag['ars']}
-                  style={{ width: 50, height: 50 }}
+                  style={{ width: 50, height: 50, borderRadius: 10,
+                    borderWidth: 1, }}
                 />
                 <Text style={styles.fromCurrencyName}>{'ars'.toUpperCase()}</Text>
               </TouchableOpacity>
@@ -65,7 +70,8 @@ const CurrenciesTop = ({ appTheme, fromCurrency, setFromCurrency, amount, setAmo
               <TouchableOpacity onPress={() => onHandleSelectCurrency('usd')}>
                 <Image
                   source={requireFlag['usd']}
-                  style={{ width: 50, height: 50 }}
+                  style={{ width: 50, height: 50, borderRadius: 10,
+                    borderWidth: 1, }}
                 />
                 <Text style={styles.fromCurrencyName}>{'usd'.toUpperCase()}</Text>
               </TouchableOpacity>
@@ -74,7 +80,8 @@ const CurrenciesTop = ({ appTheme, fromCurrency, setFromCurrency, amount, setAmo
               <TouchableOpacity onPress={() => onHandleSelectCurrency('eur')}>
                 <Image
                   source={requireFlag['eur']}
-                  style={{ width: 50, height: 50 }}
+                  style={{ width: 50, height: 50, borderRadius: 10,
+                    borderWidth: 1, }}
                 />
                 <Text style={styles.fromCurrencyName}>{'eur'.toUpperCase()}</Text>
               </TouchableOpacity>
@@ -83,9 +90,40 @@ const CurrenciesTop = ({ appTheme, fromCurrency, setFromCurrency, amount, setAmo
             <TouchableOpacity onPress={() => onHandleSelectCurrency('jpy')}>
               <Image
                 source={requireFlag['jpy']}
-                style={{ width: 50, height: 50 }}
+                style={{ width: 50, height: 50, borderRadius: 10,
+                  borderWidth: 1, }}
               />
               <Text style={styles.fromCurrencyName}>{'jpy'.toUpperCase()}</Text>
+            </TouchableOpacity>
+            </View>
+            <View style={styles.selectionCurrencyButton}>
+            <TouchableOpacity onPress={() => onHandleSelectCurrency('brl')}>
+              <Image
+                source={requireFlag['brl']}
+                style={{ width: 50, height: 50, borderRadius: 10,
+                  borderWidth: 1, }}
+              />
+              <Text style={styles.fromCurrencyName}>{'brl'.toUpperCase()}</Text>
+            </TouchableOpacity>
+            </View>
+            <View style={styles.selectionCurrencyButton}>
+            <TouchableOpacity onPress={() => onHandleSelectCurrency('clp')}>
+              <Image
+                source={requireFlag['clp']}
+                style={{ width: 50, height: 50, borderRadius: 10,
+                  borderWidth: 1, }}
+              />
+              <Text style={styles.fromCurrencyName}>{'clp'.toUpperCase()}</Text>
+            </TouchableOpacity>
+            </View>
+            <View style={styles.selectionCurrencyButton}>
+            <TouchableOpacity onPress={() => onHandleSelectCurrency('gbp')}>
+              <Image
+                source={requireFlag['gbp']}
+                style={{ width: 50, height: 50, borderRadius: 10,
+                  borderWidth: 1, }}
+              />
+              <Text style={styles.fromCurrencyName}>{'gbp'.toUpperCase()}</Text>
             </TouchableOpacity>
             </View>
           </View>
@@ -104,7 +142,7 @@ const getStyle = theme => (
       flexDirection: 'row',
       width: '100%',
       backgroundColor: theme.secondary,
-      marginTop: '-20%'
+      marginTop:'-10%'
     },
     input: {
       width: '60%',
@@ -138,8 +176,9 @@ const getStyle = theme => (
       justifyContent: 'center',
       flexDirection: 'row',
       width: '25%',
-      width: '100%',
+      width: '65%',
       paddingBottom: 10,
+      marginLeft:35,
     },
     selectionCurrencyButton: {
       alignItems: 'center',

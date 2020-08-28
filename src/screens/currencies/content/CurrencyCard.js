@@ -44,7 +44,8 @@ const CurrencyCard = ({ name, flag, appTheme, fromCurrency, amount, lastRates })
       <View style={styles.leftContainer}>
         <Image
           source={url}
-          style={{ width: 50, height: 50, marginRight: 10 }}
+          style={{ width: 80, height: 50, marginRight: 10, borderRadius: 10,
+            borderWidth: 1, }}
         />
         <Text style={styles.text}>{name}</Text>
       </View>

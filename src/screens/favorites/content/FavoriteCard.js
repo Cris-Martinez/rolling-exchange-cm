@@ -50,7 +50,8 @@ const FavoriteCard = ({
       <View style={styles.leftContainer}>
         <Image
           source={url}
-          style={{ width: 90, height: 60, marginRight: 20 }}
+          style={{ width: 130, height: 70, marginRight: 20, borderRadius: 10,
+            borderWidth: 1, }}
         />
         <Text style={styles.text}>{name}</Text>
       </View>
@@ -92,4 +93,4 @@ const getStyle = theme => (
   })
 )
 
-export default FavoriteCard 
+export default FavoriteCard
